@@ -17,6 +17,7 @@ public class Base_class implements Framework_Constants{
 	public WebDriver driver;
 	public WebDriverWait wait;
 	public Login_repo login;
+	String user;
 	@BeforeClass
 	public void openApp() {
 		System.setProperty(GECKO_KEY,GECKO_VALUE );
@@ -27,7 +28,7 @@ public class Base_class implements Framework_Constants{
 	
 	@BeforeMethod
 	public void login() throws IOException, InterruptedException {
-		String user = GenericGetDataFromProperty.getData("username");
+		 user= GenericGetDataFromProperty.getData("username");
 		String pass = GenericGetDataFromProperty.getData("password");
 		login=new Login_repo(driver);
 		Thread.sleep(2000);
